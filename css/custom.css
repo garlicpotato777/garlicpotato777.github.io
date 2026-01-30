@@ -1,0 +1,48 @@
+/* 导航栏标题高级感 */
+.navbar-brand {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--m-blue) !important; /* 使用我们定义的莫兰迪蓝 */
+  transition: color 0.3s;
+}
+.navbar-brand:hover {
+  color: var(--m-red) !important; /* 悬停变莫兰迪粉 */
+}
+
+/* 莫蘭迪彩虹配色組 */
+:root {
+  --m-red: #E2B2B2;    /* 乾枯玫瑰 */
+  --m-orange: #E9C4A6; /* 杏色 */
+  --m-yellow: #E8D5B7; /* 奶茶色 */
+  --m-green: #B9C6B5;  /* 鼠尾草綠 */
+  --m-blue: #99AAB5;   /* 霧霾藍 */
+  --m-purple: #B6A6B5; /* 煙灰紫 */
+}
+
+/* 1. 頂部閱讀進度條變彩虹色（非常有高級感） */
+.progress-bar {
+  background: linear-gradient(to right, var(--m-red), var(--m-orange), var(--m-blue), var(--m-purple)) !important;
+}
+
+/* 2. 讓首頁文章卡片更有質感：大圓角 + 莫蘭迪邊框 */
+.index-card {
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.3s ease;
+}
+
+.index-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(153, 170, 181, 0.2) !important;
+}
+
+/* 3. 分類標籤變成莫蘭迪彩虹氣泡 */
+.index-info .index-date, .index-info i {
+  color: var(--m-blue) !important;
+}
+
+/* 讓鼠標懸停在導航欄時顯示彩虹色 */
+.navbar .nav-item a:hover {
+  color: var(--m-red) !important;
+}
