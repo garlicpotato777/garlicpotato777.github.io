@@ -19,6 +19,11 @@
   --m-purple: #B6A6B5; /* 煙灰紫 */
 }
 
+/* 给所有 Banner 增加一个柔和的灰度滤镜 */
+.banner {
+  filter: contrast(90%) brightness(95%) sepia(5%); 
+}
+
 /* 1. 頂部閱讀進度條變彩虹色（非常有高級感） */
 .progress-bar {
   background: linear-gradient(to right, var(--m-red), var(--m-orange), var(--m-blue), var(--m-purple)) !important;
@@ -45,4 +50,22 @@
 /* 讓鼠標懸停在導航欄時顯示彩虹色 */
 .navbar .nav-item a:hover {
   color: var(--m-red) !important;
+}
+
+/* 让文章内的图片自带圆角和微弱阴影 */
+.post-content img {
+  display: block;
+  margin: 1.5rem auto; /* 居中 */
+  border-radius: 10px; /* 圆角 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* 极其轻微的阴影 */
+  max-width: 90% !important; /* 别占满整个屏幕，留点呼吸感 */
+}
+
+/* 图片下方的文字说明样式 */
+.post-content .image-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #99AAB5; /* 使用莫兰迪蓝 */
+  margin-top: -1rem;
+  margin-bottom: 2rem;
 }
