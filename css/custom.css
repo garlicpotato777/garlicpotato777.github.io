@@ -1,14 +1,3 @@
-/* 导航栏标题高级感 */
-.navbar-brand {
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: var(--m-blue) !important; /* 使用我们定义的莫兰迪蓝 */
-  transition: color 0.3s;
-}
-.navbar-brand:hover {
-  color: var(--m-red) !important; /* 悬停变莫兰迪粉 */
-}
-
 /* 莫蘭迪彩虹配色組 */
 :root {
   --m-red: #E2B2B2;    /* 乾枯玫瑰 */
@@ -17,6 +6,46 @@
   --m-green: #B9C6B5;  /* 鼠尾草綠 */
   --m-blue: #99AAB5;   /* 霧霾藍 */
   --m-purple: #B6A6B5; /* 煙灰紫 */
+}
+
+/* --- 导航栏全状态覆盖 --- */
+
+/* 1. 强制覆盖背景（不管是下滑前还是下滑后） */
+.navbar, .navbar-custom, .navbar-col-show {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 2. 强制文字和图标颜色（解决看不见的问题） */
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .nav-link i,
+.navbar-brand, 
+.nav-item a {
+  color: #333333 !important; /* 统一深碳灰 */
+  opacity: 1 !important;
+}
+
+/* 3. 鼠标悬停动画（莫兰迪蓝反馈） */
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:hover i,
+.navbar-brand:hover {
+  color: var(--m-blue) !important;
+  background-color: transparent !important; /* 防止出现背景色块 */
+}
+
+/* 4. 针对移动端折叠菜单的修复 */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
+/* 如果你的 Home 键有图标，也要确保图标可见 */
+.navbar-custom .nav-link [class^="iconfont"] {
+  color: #444444 !important;
 }
 
 /* 给所有 Banner 增加一个柔和的灰度滤镜 */
@@ -47,10 +76,7 @@
   color: var(--m-blue) !important;
 }
 
-/* 讓鼠標懸停在導航欄時顯示彩虹色 */
-.navbar .nav-item a:hover {
-  color: var(--m-red) !important;
-}
+
 
 /* 让文章内的图片自带圆角和微弱阴影 */
 .post-content img {
@@ -68,4 +94,41 @@
   color: #99AAB5; /* 使用莫兰迪蓝 */
   margin-top: -1rem;
   margin-bottom: 2rem;
+}
+
+/* 修改回到顶部按钮的背景 */
+#scroll-top-button {
+  background-color: rgba(50, 50, 50, 0.7) !important; /* 深灰色半透明 */
+  backdrop-filter: blur(5px); /* 按钮也带一点点毛玻璃 */
+  border-radius: 50%; /* 保持圆形，或者改成 8px 变成圆角矩形 */
+  transition: all 0.3s;
+}
+
+/* 修改按钮内部的小箭头颜色 */
+#scroll-top-button i {
+  color: #ffffff !important;
+}
+
+/* 鼠标悬停在按钮上时 */
+#scroll-top-button:hover {
+  background-color: var(--m-blue) !important; /* 悬停变莫兰迪蓝 */
+  transform: translateY(-3px); /* 向上轻微跳动，交互感更强 */
+}
+
+/* 关于页头像圆角加深，更有软萌感 */
+.about-avatar img {
+  border-radius: 50%; /* 圆形头像 */
+  transition: transform 0.5s ease;
+  border: 5px solid rgba(255, 255, 255, 0.5); /* 增加一层半透明白边 */
+}
+
+.about-avatar img:hover {
+  transform: rotate(360deg); /* 鼠标悬停头像转一圈，很有趣 */
+}
+
+/* 关于页面的社交图标颜色 */
+.about-icons .iconfont {
+  color: var(--m-blue) !important; /* 使用你的莫兰迪蓝 */
+  font-size: 1.5rem;
+  margin: 0 10px;
 }
